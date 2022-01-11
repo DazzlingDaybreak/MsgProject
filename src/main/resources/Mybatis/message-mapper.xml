@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="Message">
+  	<insert id="insert">
+  		insert into messages values(messages_seq.nextval,#{writer},#{message})
+  	</insert>
+  
+  	<delete id="delete">
+  		delete from messages where seq=#{value}
+  	</delete>
+  	
+  	<update id="update">
+  		update messages set writer=#{writer}, message=#{message} where seq=#{seq}
+  	</update>
+  	
+  	<select id="selectCount" resultType="int">
+  		select count(*) from messages
+  	</select>
+  	
+  	<select id="search" resultType="kh.spring">
+  		select * from messages where seq = #{value}
+  	</select>
+  	
+  	<select id="selectAll" resultType="kh.spring">
+  		select * from messages order by 1
+  	</select>
+  </mapper>
