@@ -2,38 +2,74 @@ package kh.spring.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	// MessageDAO 미생성 관계로 merge시 주석풀고 클래스 import할 것.
+	
+	@Autowired
+//	MessageDAO dao;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
 	}
 	
+	@RequestMapping("inputForm")
+	public String inputForm() {
+		return "inputForm";
+	}
+	
+//	@RequestMapping("inputProc")
+//	public String inputProc(MessageDTO dto) throws Exception {
+//		int result = dao.insert(dto);
+//		return "redirect:/";
+//	}
+
+//	@RequestMapping("outputProc")
+//	public String outputProc(Model model) throws Exception {
+//		List<MessageDTO> list = dao.select();
+//		model.addAttribute("list",list);
+//		return "outputView";
+//	}
+	
+//	@RequestMapping("deleteProc")
+//	public String deleteProc(MessageDTO dto) throws Exception {
+//		int result = dao.delete(dto);
+//		return "redirect:outputProc";
+//	}
+	
+	@RequestMapping("updateProc")
+//	public String updateProc(MessageDTO dto) throws Exception {
+//		int result = dao.update(dto);
+//		return "redirect:outputProc";
+//	}
+	
+//	@RequestMapping("search")
+//	public String search(Model model, int seq) throws Exception {
+//		List<MessageDTO> list = dao.search(seq);
+//		model.addAttribute("list",list);
+//		return "outputView";
+//	}
+	
+	@ExceptionHandler(Exception.class)
+	public String exceptionHandler(Exception e) {
+		e.printStackTrace();
+		return "redirect:/";
+	}
 }
