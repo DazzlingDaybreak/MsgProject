@@ -26,7 +26,7 @@ public class MessageDAO {
 	return mybatis.update("Message.update",dto);
 	}
 	
-	public List<MessageDTO> slect(int seq) throws Exception {
+	public List<MessageDTO> select(int seq) throws Exception {
 		return mybatis.selectList("Message.select",seq);
 	}
 
