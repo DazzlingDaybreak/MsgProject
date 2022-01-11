@@ -30,5 +30,8 @@ public class MessageDAO {
 		return mybatis.selectList("Message.select",seq);
 	}
 
-
+	// search 추가.
+	public List<MessageDTO> search(int seq){
+		return mybatis.selectList("Message.search",seq);
+	}
 }
