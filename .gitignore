@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/maven,java,git,eclipse,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=maven,java,git,eclipse,windows
+# Created by https://www.toptal.com/developers/gitignore/api/java,maven,git,eclipse,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,git,eclipse,windows
 
 ### Eclipse ###
 .metadata
@@ -153,4 +153,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,java,git,eclipse,windows
+# End of https://www.toptal.com/developers/gitignore/api/java,maven,git,eclipse,windows
